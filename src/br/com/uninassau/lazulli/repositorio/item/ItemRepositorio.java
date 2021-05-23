@@ -16,10 +16,10 @@ public class ItemRepositorio implements ICrud<Item> {
 
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO ITEM VALUES (?, ?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO ITEM(NOME_ITEM) VALUES (?)");
 
-            ps.setInt(1, object.getCodigoDoItem());
-            ps.setString(2, object.getNomeDoItem());
+
+            ps.setString(1, object.getNomeDoItem());
             ps.executeUpdate();
 
             ps.close();
