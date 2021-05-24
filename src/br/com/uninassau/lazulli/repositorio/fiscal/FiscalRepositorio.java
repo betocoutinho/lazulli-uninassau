@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorio.fiscal;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
-import br.com.uninassau.lazulli.repositorio.ICrud;
+import br.com.uninassau.lazulli.repositorio.interfaces.ICrud;
 
 import java.sql.*;
 import java.util.List;

@@ -11,9 +11,9 @@ public class Contrato {
     private LocalDate dataInicial;
     private LocalDate dataFinal;
     private double precoDoContrato;
-    private List<Item> itemList;
+    private List<ItemContrato> itemList;
 
-    public Contrato(int codigoDoContrato, String numeroDoContrato, LocalDate dataInicial, LocalDate dataFinal, double precoDoContrato, List<Item> itemList) {
+    public Contrato(int codigoDoContrato, String numeroDoContrato, LocalDate dataInicial, LocalDate dataFinal, double precoDoContrato, List<ItemContrato> itemList) {
         this.codigoDoContrato = codigoDoContrato;
         this.numeroDoContrato = numeroDoContrato;
         this.dataInicial = dataInicial;
@@ -62,11 +62,11 @@ public class Contrato {
         this.precoDoContrato = precoDoContrato;
     }
 
-    public List<Item> getItemList() {
+    public List<ItemContrato> getItemList() {
         return itemList;
     }
 
-    public void setItemList(List<Item> itemList) {
+    public void setItemList(List<ItemContrato> itemList) {
         this.itemList = itemList;
     }
 }
