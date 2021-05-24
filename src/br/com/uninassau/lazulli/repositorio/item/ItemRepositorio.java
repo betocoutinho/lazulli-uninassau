@@ -131,7 +131,7 @@ public class ItemRepositorio implements ICrud<Item> {
             ps.close();
             conexao.close();
         }catch (SQLException e){
-
+            e.printStackTrace();
         }
 
     }
