@@ -1,41 +1,40 @@
-package br.com.uninassau.lazulli.repositorio.fiscal;
+package br.com.uninassau.lazulli.repositorio.obra;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
+import br.com.uninassau.lazulli.entidades.Obra;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
+import br.com.uninassau.lazulli.repositorio.fiscal.FiscalRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FiscalRepositorio implements ICrud<Fiscal> {
+public class ObraRepositorio implements ICrud<Obra> {
 
     @Override
-    public void create(Fiscal object) {
+    public void create(Obra object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO FISCAL(NOME, TELEFONE) VALUES (?,?)");
-
-            ps.setString(1, object.getNomeDoFiscal());
-            ps.setString(2, object.getTelefone());
-
-            ps.executeUpdate();
+            PreparedStatement ps = conexao.prepareStatement(
+                    "INSERT INTO obra(nome_obra, endereco, fk_fiscal_cod_fiscal) values (?,?,?)");
+            ps.setString(1, object.getNomedaObra());
+            ps.setString(2, object.getEndereco());
+            ps.setInt(3, object.getFiscal().getCodigoDoFiscal());
 
             ps.close();
             conexao.close();
-
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public Fiscal read(int x) {
-        Fiscal fiscal = null;
+    public Obra read(int x) {
+        Obra obra = null;
 
         try {
-            String sql = "SELECT * FROM FISCAL WHERE COD_FISCAL = " + x;
+            String sql = "SELECT * FROM OBRA WHERE COD_OBRA = " + x;
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -44,27 +43,23 @@ public class FiscalRepositorio implements ICrud<Fiscal> {
 
             int codigo = resultado.getInt(1);
             String nome = resultado.getString(2);
-            String telefone = resultado.getString(3);
+            String endereco = resultado.getString(3);
+            Fiscal fiscal = new FiscalRepositorio().read(resultado.getInt(4));
 
-            fiscal = new Fiscal(codigo, nome, telefone);
-
-            resultado.close();
-            smt.close();
-            ConexaoMySQL.FecharConexao();
-        }catch (SQLException e){
+            obra = new Obra(codigo, nome, endereco, fiscal);
+        } catch (SQLException e) {
             e.printStackTrace();
-
         }
 
-        return fiscal;
+        return obra;
     }
 
     @Override
-    public List<Fiscal> readList() {
-        List<Fiscal> fiscalList = new ArrayList<>();
+    public List<Obra> readList() {
+        List<Obra> obraList = new ArrayList<>();
 
-        try{
-            String sql = "SELECT * FROM FISCAL";
+        try {
+            String sql = "SELECT * FROM OBRA";
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -72,53 +67,52 @@ public class FiscalRepositorio implements ICrud<Fiscal> {
             while (resultado.next()){
                 int codigo = resultado.getInt(1);
                 String nome = resultado.getString(2);
-                String telefone = resultado.getString(3);
+                String endereco = resultado.getString(3);
+                Fiscal fiscal = new FiscalRepositorio().read(resultado.getInt(4));
 
-                Fiscal fiscal = new Fiscal(codigo, nome, telefone);
-
-                fiscalList.add(fiscal);
-
+                obraList.add(new Obra(codigo, nome, endereco, fiscal));
             }
             resultado.close();
             smt.close();
             ConexaoMySQL.FecharConexao();
 
-        }catch (SQLException e){
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return fiscalList;
+        return obraList;
     }
 
     @Override
-    public void update(int x, Fiscal object) {
-
-
+    public void update(int x, Obra object) {
         try {
-
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "UPDATE FISCAL SET NOME = ?, TELEFONE = ? WHERE COD_FISCAL =  " + x;
+            String sql = "UPDATE OBRA SET NOME_OBRA = ?, ENDERECO = ?, FK_FISCAL_COD_FISCAL = ? WHERE COD_OBRA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
-            ps.setString(1, object.getNomeDoFiscal());
-            ps.setString(2, object.getTelefone());
+            ps.setString(1, object.getNomedaObra());
+            ps.setString(2, object.getEndereco());
+            ps.setInt(3, object.getFiscal().getCodigoDoFiscal());
 
             ps.executeUpdate();
 
             ps.close();
             conexao.close();
 
-
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
+
+
+
     }
 
     @Override
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM FISCAL WHERE COD_ITEM = " + x;
+            String sql = "DELETE FROM OBRA WHERE COD_OBRA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();
@@ -128,7 +122,6 @@ public class FiscalRepositorio implements ICrud<Fiscal> {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
 
     }
 }

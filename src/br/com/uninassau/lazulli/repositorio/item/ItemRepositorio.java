@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorio.item;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Item;
-import br.com.uninassau.lazulli.repositorio.interfaces.ICrud;
+import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
 
 
 import java.sql.*;
@@ -72,7 +72,7 @@ public class ItemRepositorio implements ICrud<Item> {
     }
 
     @Override
-    public List<Item> read() {
+    public List<Item> readList() {
         List<Item> itemList = new ArrayList<>();
         try {
             String sql = "SELECT * FROM ITEM";

@@ -1,11 +1,11 @@
-package br.com.uninassau.lazulli.repositorio.interfaces;
+package br.com.uninassau.lazulli.entidades.interfaces;
 
 import java.util.List;
 
 public interface ICrud<T> {
     void create(T object);
     T read(int x);
-    List<T> read();
+    List<T> readList();
     void update(int x, T object);
     void delete(int x);
 }
