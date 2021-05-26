@@ -1,15 +1,48 @@
-import br.com.uninassau.lazulli.entidades.Fiscal;
+import br.com.uninassau.lazulli.entidades.*;
+import br.com.uninassau.lazulli.repositorio.contrato.ContratoRepositorio;
 import br.com.uninassau.lazulli.repositorio.fiscal.FiscalRepositorio;
+import br.com.uninassau.lazulli.repositorio.item.ItemRepositorio;
+import br.com.uninassau.lazulli.repositorio.itemcontrato.ItemContratoRepositorio;
+
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Teste {
     public static void main(String[] args) {
-        FiscalRepositorio fp = new FiscalRepositorio();
+//        Obra obra = new Obra(1, null, null, null);
+//        EmpresaLocadora empresaLocadora = new EmpresaLocadora(2, null, null);
+//
+//        ItemRepositorio itemRepositorio = new ItemRepositorio();
+//
+//        ItemContrato item1 = new ItemContrato(0, itemRepositorio.read(1), 20);
+//        ItemContrato item2 = new ItemContrato(0, itemRepositorio.read(3), 15);
+//        List<ItemContrato> itemContratoList = new ArrayList<>();
+//
+//        itemContratoList.add(item1);
+//        itemContratoList.add(item2);
+//
+//        LocalDate data = LocalDate.now();
+//
+//        Contrato contrato = new Contrato(0, "jsaçsa",
+//                data, data, 256.4, empresaLocadora, obra);
+//
+//        contrato.setItemList(itemContratoList);
 
-        Fiscal fiscal = new Fiscal(0, "Severiono", "545434");
+        ContratoRepositorio cont = new ContratoRepositorio();
+        cont.delete(8);
 
-        Fiscal fiscal1 = fp.read(1);
 
-        System.out.println(fiscal1.getNomeDoFiscal() + fiscal1.getCodigoDoFiscal());
+
+//        ItemContratoRepositorio teste1 = new ItemContratoRepositorio();
+//        List<ItemContrato> as3 = teste1.readList(8);
+
+//        ItemRepositorio teste = new ItemRepositorio();
+//        Item item = teste.read(1);
+
+
 
     }
 }

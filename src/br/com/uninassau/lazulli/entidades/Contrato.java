@@ -1,8 +1,8 @@
 package br.com.uninassau.lazulli.entidades;
 
-import org.joda.time.LocalDate;
 
-import java.util.ArrayList;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class Contrato {
@@ -11,15 +11,21 @@ public class Contrato {
     private LocalDate dataInicial;
     private LocalDate dataFinal;
     private double precoDoContrato;
+    private EmpresaLocadora empresaLocadora;
+    private Obra obra;
     private List<ItemContrato> itemList;
 
-    public Contrato(int codigoDoContrato, String numeroDoContrato, LocalDate dataInicial, LocalDate dataFinal, double precoDoContrato, List<ItemContrato> itemList) {
+    public Contrato(int codigoDoContrato, String numeroDoContrato, LocalDate dataInicial, LocalDate dataFinal,
+                    double precoDoContrato, EmpresaLocadora empresaLocadora,
+                    Obra obra) {
         this.codigoDoContrato = codigoDoContrato;
         this.numeroDoContrato = numeroDoContrato;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
         this.precoDoContrato = precoDoContrato;
-        this.itemList = itemList;
+        this.empresaLocadora = empresaLocadora;
+        this.obra = obra;
+
     }
 
     public int getCodigoDoContrato() {
@@ -60,6 +66,22 @@ public class Contrato {
 
     public void setPrecoDoContrato(double precoDoContrato) {
         this.precoDoContrato = precoDoContrato;
+    }
+
+    public EmpresaLocadora getEmpresaLocadora() {
+        return empresaLocadora;
+    }
+
+    public void setEmpresaLocadora(EmpresaLocadora empresaLocadora) {
+        this.empresaLocadora = empresaLocadora;
+    }
+
+    public Obra getObra() {
+        return obra;
+    }
+
+    public void setObra(Obra obra) {
+        this.obra = obra;
     }
 
     public List<ItemContrato> getItemList() {

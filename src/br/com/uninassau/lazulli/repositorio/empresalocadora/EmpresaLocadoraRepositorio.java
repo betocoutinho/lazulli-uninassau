@@ -1,25 +1,24 @@
-package br.com.uninassau.lazulli.repositorio.item;
+package br.com.uninassau.lazulli.repositorio.empresalocadora;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
+import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
 import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
-
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemRepositorio implements ICrud<Item> {
-
+public class EmpresaLocadoraRepositorio implements ICrud<EmpresaLocadora> {
     @Override
-    public void create(Item object) {
-
+    public void create(EmpresaLocadora object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO ITEM(NOME_ITEM) VALUES (?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO empresa_locadora(nome_empresa, endereco) VALUES (?,?)");
 
 
-            ps.setString(1, object.getNomeDoItem());
+            ps.setString(1, object.getNome());
+            ps.setString(2, object.getEndereco());
             ps.executeUpdate();
 
             ps.close();
@@ -30,14 +29,15 @@ public class ItemRepositorio implements ICrud<Item> {
             e.printStackTrace();
 
         }
+
     }
 
     @Override
-    public Item read(int x) {
-        Item item = null;
+    public EmpresaLocadora read(int x) {
+        EmpresaLocadora empresaLocadora = null;
 
         try {
-            String sql = "SELECT * FROM ITEM WHERE COD_ITEM = " + x;
+            String sql = "SELECT * FROM empresa_locadora WHERE COD_EMPRESA = " + x;
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -46,35 +46,30 @@ public class ItemRepositorio implements ICrud<Item> {
 
 
 
-
-            int codigoItem = resultado.getInt(1);
+            int codigo = resultado.getInt(1);
             String nome = resultado.getString(2);
+            String endereco = resultado.getString(3);
 
-              item = new Item(codigoItem, nome);
-
-
-
-
+            empresaLocadora = new EmpresaLocadora(codigo, nome, endereco);
 
             resultado.close();
             smt.close();
             ConexaoMySQL.FecharConexao();
 
-            
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return item;
-
+        return empresaLocadora;
     }
 
     @Override
-    public List<Item> readList() {
-        List<Item> itemList = new ArrayList<>();
+    public List<EmpresaLocadora> readList() {
+        List<EmpresaLocadora> empresaLocadoras = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM ITEM";
+            String sql = "SELECT * FROM empresa_locadora";
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -82,11 +77,11 @@ public class ItemRepositorio implements ICrud<Item> {
 
 
             while (resultado.next()){
-                int codigo = resultado.getInt("COD_ITEM");
-                String nome = resultado.getString("NOME_ITEM");
+                int codigo = resultado.getInt(1);
+                String nome = resultado.getString(2);
+                String endereco = resultado.getString(3);
 
-                Item item = new Item(codigo, nome);
-                itemList.add(item);
+                empresaLocadoras.add(new EmpresaLocadora(codigo, nome, endereco));
 
             }
 
@@ -97,17 +92,18 @@ public class ItemRepositorio implements ICrud<Item> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return itemList;
+        return empresaLocadoras;
     }
 
     @Override
-    public void update(int x, Item newObject) {
+    public void update(int x, EmpresaLocadora object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "UPDATE ITEM SET NOME_ITEM = ? WHERE COD_ITEM = " + x;
+            String sql = "UPDATE empresa_locadora SET NOME_EMPRESA = ?, ENDERECO = ? WHERE COD_EMPRESA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
-            ps.setString(1, newObject.getNomeDoItem());
+            ps.setString(1, object.getNome());
+            ps.setString(2, object.getEndereco());
             ps.executeUpdate();
 
             ps.close();
@@ -115,14 +111,13 @@ public class ItemRepositorio implements ICrud<Item> {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM ITEM WHERE COD_ITEM = " + x;
+            String sql = "DELETE FROM empresa_locadora WHERE COD_EMPRESA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();
@@ -132,6 +127,5 @@ public class ItemRepositorio implements ICrud<Item> {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 }
