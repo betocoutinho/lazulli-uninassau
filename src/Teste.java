@@ -1,14 +1,4 @@
-import br.com.uninassau.lazulli.entidades.*;
-import br.com.uninassau.lazulli.repositorio.contrato.ContratoRepositorio;
-import br.com.uninassau.lazulli.repositorio.fiscal.FiscalRepositorio;
-import br.com.uninassau.lazulli.repositorio.item.ItemRepositorio;
-import br.com.uninassau.lazulli.repositorio.itemcontrato.ItemContratoRepositorio;
-
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import br.com.uninassau.lazulli.repositorios.ContratoRepositorio;
 
 public class Teste {
     public static void main(String[] args) {

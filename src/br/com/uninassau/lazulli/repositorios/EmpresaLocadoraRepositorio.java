@@ -1,8 +1,7 @@
-package br.com.uninassau.lazulli.repositorio.empresalocadora;
+package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
-import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
 
 import java.sql.*;

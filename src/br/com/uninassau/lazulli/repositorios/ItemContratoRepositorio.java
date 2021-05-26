@@ -1,10 +1,8 @@
-package br.com.uninassau.lazulli.repositorio.itemcontrato;
+package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
-import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
-import br.com.uninassau.lazulli.repositorio.item.ItemRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;

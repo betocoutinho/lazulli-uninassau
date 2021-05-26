@@ -1,16 +1,12 @@
-package br.com.uninassau.lazulli.repositorio.contrato;
+package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.*;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
-import br.com.uninassau.lazulli.repositorio.empresalocadora.EmpresaLocadoraRepositorio;
-import br.com.uninassau.lazulli.repositorio.itemcontrato.ItemContratoRepositorio;
-import br.com.uninassau.lazulli.repositorio.obra.ObraRepositorio;
 
 import java.time.LocalDate;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

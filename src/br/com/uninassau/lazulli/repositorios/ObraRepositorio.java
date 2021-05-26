@@ -1,10 +1,9 @@
-package br.com.uninassau.lazulli.repositorio.obra;
+package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.entidades.Obra;
 import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
-import br.com.uninassau.lazulli.repositorio.fiscal.FiscalRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
