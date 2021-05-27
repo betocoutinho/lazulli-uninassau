@@ -25,7 +25,7 @@ public class ConexaoMySQL {
 
             // Configurando a nossa conexão com um banco de dados/
 
-            String url = "jdbc:mysql://localhost:3306/lazulli";
+            String url = "jdbc:mysql://localhost:3306/lazullidb";
 
             String username = "root"; // nome de um usuário de seu BD
 

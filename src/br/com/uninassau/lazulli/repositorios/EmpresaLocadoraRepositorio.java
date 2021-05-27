@@ -2,13 +2,13 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
-import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
+import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpresaLocadoraRepositorio implements ICrud<EmpresaLocadora> {
+public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora> {
     @Override
     public void create(EmpresaLocadora object) {
         try {

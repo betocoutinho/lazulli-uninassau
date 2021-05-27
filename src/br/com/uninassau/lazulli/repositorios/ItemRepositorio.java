@@ -2,14 +2,14 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Item;
-import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
+import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
 
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemRepositorio implements ICrud<Item> {
+public class ItemRepositorio implements IRepositorio<Item> {
 
     @Override
     public void create(Item object) {

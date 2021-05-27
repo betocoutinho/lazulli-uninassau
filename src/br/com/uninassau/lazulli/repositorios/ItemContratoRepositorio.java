@@ -2,13 +2,13 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
-import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
+import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemContratoRepositorio implements ICrud<ItemContrato> {
+public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
 
     @Override
     public void create(ItemContrato object) {

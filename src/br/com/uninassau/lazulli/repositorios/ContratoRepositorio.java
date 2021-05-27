@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.*;
-import br.com.uninassau.lazulli.entidades.interfaces.ICrud;
+import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContratoRepositorio implements ICrud<Contrato> {
+public class ContratoRepositorio implements IRepositorio<Contrato> {
     @Override
     public void create(Contrato object) {
         try {
