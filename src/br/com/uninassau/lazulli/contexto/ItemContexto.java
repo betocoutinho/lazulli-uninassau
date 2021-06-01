@@ -32,7 +32,8 @@ public class ItemContexto implements IContexto {
 
             ElementosDeContexto.miniMenuDeContexto("Item");
 
-            String resposta = this.leitor.nextLine();
+            String resposta = this.leitor.next();
+
 
             switch (resposta){
                 case "0":
@@ -53,6 +54,8 @@ public class ItemContexto implements IContexto {
 
         }while (indicador);
 
+        this.leitor.close();
+
 
 
     }
@@ -63,13 +66,13 @@ public class ItemContexto implements IContexto {
 
         String nome = ItemCaptura.capturaNome();
 
-        repositorio.create(new Item(0, nome));
+        this.repositorio.create(new Item(0, nome));
 
     }
 
     @Override
     public void atualizar() {
-        List<Item> itemList = repositorio.readList();
+        List<Item> itemList = this.repositorio.readList();
 
         System.out.println("------Tela de Atualização------");
 
@@ -89,7 +92,7 @@ public class ItemContexto implements IContexto {
         Item novoItem = itemList.stream().filter(v -> v.getCodigoDoItem() == codigo).findFirst().get();
 
         novoItem.setNomeDoItem(ItemCaptura.capturaNome());
-        repositorio.update(codigo, novoItem);
+        this.repositorio.update(codigo, novoItem);
 
 
     }
@@ -104,11 +107,13 @@ public class ItemContexto implements IContexto {
 
         System.out.println();
 
-        System.out.println("Informe o codigo do item para atualização: ");
+        System.out.println("Informe o codigo do item para remoção: ");
         int codigo = leitor.nextInt();
 
 
-        if(codigo < 1 || codigo > itemList.size()){
+        boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoItem() == codigo);
+
+        if(!teste){
             System.out.println("Este numero não existe");
             return;
         }

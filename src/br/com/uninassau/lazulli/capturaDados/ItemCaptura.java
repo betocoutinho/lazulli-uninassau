@@ -11,7 +11,7 @@ public class ItemCaptura {
 
        String nome = leitor.nextLine();
 
-       leitor.close();
+
 
        return nome;
    }

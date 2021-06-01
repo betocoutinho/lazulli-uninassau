@@ -1,5 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
+import java.util.Scanner;
+
 public class ElementosDeContexto {
     public static void miniMenuDeContexto(String elemento){
         System.out.println();
@@ -10,4 +12,6 @@ public class ElementosDeContexto {
         System.out.println("[0] Sair");
         System.out.println();
     }
+
+
 }
