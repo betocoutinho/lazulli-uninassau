@@ -84,7 +84,9 @@ public class ItemContexto implements IContexto {
         int codigo = leitor.nextInt();
 
 
-        if(codigo < 1 || codigo > itemList.size()){
+        boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoItem() == codigo);
+
+        if(!teste){
             System.out.println("Este numero não existe");
             return;
         }
