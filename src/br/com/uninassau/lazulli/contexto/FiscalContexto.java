@@ -82,7 +82,9 @@ public class FiscalContexto implements IContexto{
         System.out.println("Informe o codigo do fiscal para atualização: ");
         int codigo = leitor.nextInt();
 
-        if(codigo < 1 || codigo > itemList.size()){
+        boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoFiscal() == codigo);
+
+        if(!teste){
             System.out.println("Este numero não existe");
             return;
         }
