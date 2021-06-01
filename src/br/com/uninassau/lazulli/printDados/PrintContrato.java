@@ -23,4 +23,13 @@ public class PrintContrato {
             print(contrato);
         }
     }
+
+    public static void printFull(List<Contrato> contratos){
+
+        contratos.stream().forEach(v -> {
+            PrintContrato.print(v);
+            v.getItemList().stream().forEach(t -> PrintItemContrato.infoItemContrato(t));
+            System.out.println("--------------------------------------------------------------");
+        });
+    }
 }

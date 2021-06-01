@@ -74,23 +74,7 @@ public class ObraContexto implements IContexto{
         List<Fiscal> fiscalList = fiscalRepositorio.readList();
 
         System.out.println("Digite o codigo de um Fiscal abaixo: ");
-        PrintFiscal.print(fiscalList);
-
-        int codigo = 0;
-        boolean status = true;
-
-        do{
-            codigo = this.leitor.nextInt();
-            int finalCodigo = codigo;
-            status = fiscalList.stream().anyMatch(v -> v.getCodigoDoFiscal() == finalCodigo);
-            if(!status){
-                System.out.println("Codigo Invalido, digite Novamente!!!");
-            }
-
-        }while(!status);
-
-        int finalCodigo1 = codigo;
-        Fiscal fiscalSelecionado = fiscalList.stream().filter(v -> v.getCodigoDoFiscal() == finalCodigo1).findFirst().get();
+        Fiscal fiscalSelecionado = ObraCaptura.capturaFiscal();
 
         novaObra.setFiscal(fiscalSelecionado);
 
@@ -103,7 +87,6 @@ public class ObraContexto implements IContexto{
     @Override
     public void atualizar() {
         List<Obra> obraList = this.obraRepositorio.readList();
-        List<Fiscal> fiscalList = new FiscalRepositorio().readList();
 
         System.out.println("------Tela de Atualização------");
 

@@ -13,9 +13,10 @@ public class PrintItemContrato {
 
     }
 
-    private static String infoItemContrato(ItemContrato itemContrato){
-        String item = "Item: " + itemContrato.getItem().getNomeDoItem() + " ::: "
-                + "Qtd: " + itemContrato.getQuantidade();
+    public static String infoItemContrato(ItemContrato itemContrato){
+        String item = "COD: " + itemContrato.getItem().getCodigoDoItem() + " ::: "
+                + "Nome: " + itemContrato.getItem().getNomeDoItem()
+                + " Quantidade: " + itemContrato.getQuantidade();
         
         return item;
     }
