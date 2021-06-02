@@ -17,9 +17,12 @@ public class ObraRepositorio implements IRepositorio<Obra> {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             PreparedStatement ps = conexao.prepareStatement(
                     "INSERT INTO obra(nome_obra, endereco, fk_fiscal_cod_fiscal) values (?,?,?)");
+
             ps.setString(1, object.getNomedaObra());
             ps.setString(2, object.getEndereco());
             ps.setInt(3, object.getFiscal().getCodigoDoFiscal());
+
+            ps.executeUpdate();
 
             ps.close();
             conexao.close();

@@ -11,7 +11,7 @@ public class ItemContratoCaptura {
 
         int quantidade = leitor.nextInt();
 
-        leitor.close();
+
 
         return quantidade;
     }

@@ -112,7 +112,8 @@ public class ContratoRepositorio implements IRepositorio<Contrato> {
 
 
                 Contrato contrato = new Contrato(codigo, numeroContrato, dataInicial, dataFinal, valor, empresaLocadora, obra);
-                contrato.setItemList(new ItemContratoRepositorio().readList(contrato.getCodigoDoContrato()));
+                List<ItemContrato> itemContratoes = new ItemContratoRepositorio().readList(contrato.getCodigoDoContrato());
+                contrato.setItemList(itemContratoes);
 
                 contratos.add(contrato);
             }

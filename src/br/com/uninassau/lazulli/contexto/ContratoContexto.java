@@ -30,7 +30,7 @@ public class ContratoContexto implements IContexto{
             System.out.println();
 
             List<Contrato> contratoList = this.repositorio.readList();
-            PrintContrato.printFull(contratoList);
+            PrintContrato.print(contratoList);
 
             System.out.println("Digite [0] para sair");
             int entrada = this.leitor.nextInt();

@@ -16,8 +16,6 @@ public class ObraCaptura {
 
         String nome = leitor.nextLine();
 
-        leitor.close();
-
         return nome;
     }
 
@@ -28,7 +26,7 @@ public class ObraCaptura {
 
         String endereco = leitor.nextLine();
 
-        leitor.close();
+
 
         return endereco;
     }

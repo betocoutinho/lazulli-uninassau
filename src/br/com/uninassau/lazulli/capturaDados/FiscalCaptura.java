@@ -9,7 +9,7 @@ public class FiscalCaptura {
 
         System.out.println("Informe o nome do Fiscal: ");
         String nome = leitor.nextLine();
-        leitor.close();
+
 
         return nome;
     }
@@ -19,7 +19,7 @@ public class FiscalCaptura {
 
         System.out.println("Informe o telefone do Fiscal: ");
         String telefone = leitor.nextLine();
-        leitor.close();
+
 
         return telefone;
     }

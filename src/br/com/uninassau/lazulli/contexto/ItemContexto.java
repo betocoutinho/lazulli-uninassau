@@ -32,12 +32,13 @@ public class ItemContexto implements IContexto {
 
             ElementosDeContexto.miniMenuDeContexto("Item");
 
-            String resposta = this.leitor.next();
+            String entradaText = this.leitor.next();
+
+            String resposta = entradaText;
 
 
             switch (resposta){
                 case "0":
-                    leitor.close();
                     return;
                 case "1":
                     this.criar();
@@ -54,7 +55,7 @@ public class ItemContexto implements IContexto {
 
         }while (indicador);
 
-        this.leitor.close();
+
 
 
 

@@ -25,7 +25,7 @@ public class ContratoCaptura {
 
         String nome = leitor.nextLine();
 
-        leitor.close();
+
 
         return nome;
     }
@@ -43,7 +43,7 @@ public class ContratoCaptura {
 
        LocalDate novaData = LocalDate.of(dataInt[2], dataInt[1], dataInt[0]);
 
-        leitor.close();
+
 
        return novaData;
 
@@ -59,7 +59,7 @@ public class ContratoCaptura {
 
         double preco = leitor.nextDouble();
 
-        leitor.close();
+
 
         return preco;
     }

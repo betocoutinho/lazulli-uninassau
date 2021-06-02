@@ -40,7 +40,6 @@ public class ObraContexto implements IContexto{
 
             switch (resposta){
                 case "0":
-                    leitor.close();
                     return;
                 case "1":
                     this.criar();

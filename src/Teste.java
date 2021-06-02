@@ -1,10 +1,9 @@
 import br.com.uninassau.lazulli.contexto.ItemContexto;
+import br.com.uninassau.lazulli.menuInicial.MenuInicial;
 
 public class Teste {
     public static void main(String[] args) {
-        ItemContexto teste = new ItemContexto();
-
-        teste.consulta();
+        MenuInicial.inicio();
 
     }
 }

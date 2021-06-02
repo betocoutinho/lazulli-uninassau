@@ -11,7 +11,6 @@ public class EmpresaLocadoraCaptura {
 
         String nome = leitor.nextLine();
 
-        leitor.close();
 
         return nome;
     }
@@ -23,7 +22,6 @@ public class EmpresaLocadoraCaptura {
 
         String endereco = leitor.nextLine();
 
-        leitor.close();
 
         return endereco;
     }

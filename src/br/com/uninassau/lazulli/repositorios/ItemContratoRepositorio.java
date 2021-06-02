@@ -1,6 +1,7 @@
 package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
+import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
 import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
 
@@ -75,6 +76,7 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
 
     public List<ItemContrato> readList(int x){
         List<ItemContrato> itemContratoList = new ArrayList<>();
+        List<Item> listItem = new ItemRepositorio().readList();
 
         try {
             String sql = "SELECT * FROM item_contrato WHERE FK_CONTRATO_COD_CONTRATO = " + x;
@@ -87,7 +89,13 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
                 int codigoContrato = resultado.getInt(2);
                 int quantidade = resultado.getInt(3);
 
-                itemContratoList.add(new ItemContrato(codigoContrato, new ItemRepositorio().read(codigoItem), quantidade));
+                int cod = codigoItem;
+
+                Item itemSelecionado = listItem.stream().filter(v -> v.getCodigoDoItem() == cod).findFirst().get();
+
+                ItemContrato itemContrato = new ItemContrato(codigoContrato, itemSelecionado, quantidade);
+
+                itemContratoList.add(itemContrato);
             }
 
 

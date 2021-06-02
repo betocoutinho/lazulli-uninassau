@@ -42,7 +42,7 @@ public class EmpresaLocadoraContexto implements IContexto{
 
             switch (resposta){
                 case "0":
-                    leitor.close();
+
                     return;
                 case "1":
                     this.criar();
@@ -59,7 +59,7 @@ public class EmpresaLocadoraContexto implements IContexto{
 
         }while (indicador);
 
-        this.leitor.close();
+
     }
 
     @Override

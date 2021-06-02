@@ -33,12 +33,11 @@ public class FiscalContexto implements IContexto{
             PrintFiscal.print(itens);
 
             ElementosDeContexto.miniMenuDeContexto("Fiscal");
-
-            String resposta = this.leitor.next();
+            String resposta = this.leitor.nextLine();
 
             switch (resposta){
                 case "0":
-                    leitor.close();
+
                     return;
                 case "1":
                     this.criar();
