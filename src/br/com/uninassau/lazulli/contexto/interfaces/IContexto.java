@@ -1,4 +1,4 @@
-package br.com.uninassau.lazulli.contexto;
+package br.com.uninassau.lazulli.contexto.interfaces;
 
 public interface IContexto {
     void consulta();

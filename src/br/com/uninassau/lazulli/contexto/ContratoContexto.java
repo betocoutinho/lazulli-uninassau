@@ -1,6 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.ContratoCaptura;
+import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
 import br.com.uninassau.lazulli.entidades.Contrato;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ContratoContexto implements IContexto{
+public class ContratoContexto implements IContexto {
     ContratoRepositorio repositorio;
     Scanner leitor;
 
@@ -106,7 +107,7 @@ public class ContratoContexto implements IContexto{
         boolean teste = contratoList.stream().anyMatch(v -> v.getCodigoDoContrato() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!!----");
             return;
         }
 
@@ -186,7 +187,7 @@ public class ContratoContexto implements IContexto{
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoContrato() == codigo);
 
         if(!teste){
-            System.out.println("Este codigo não existe");
+            System.out.println("----Este codigo não existe!!!----");
             return;
         }
 

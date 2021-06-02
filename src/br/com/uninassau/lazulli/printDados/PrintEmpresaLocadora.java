@@ -10,7 +10,7 @@ public class PrintEmpresaLocadora {
         System.out.println(
                 "COD: " + empresaLocadora.getCodigoEmpresaLocadora() + " ::: "
                 + "Nome: " + empresaLocadora.getNome()
-                + " Endereço: " + empresaLocadora.getEndereco()
+                + " | Endereço: " + empresaLocadora.getEndereco()
         );
     }
 

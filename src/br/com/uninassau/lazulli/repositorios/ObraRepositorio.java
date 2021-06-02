@@ -3,7 +3,7 @@ package br.com.uninassau.lazulli.repositorios;
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.entidades.Obra;
-import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;

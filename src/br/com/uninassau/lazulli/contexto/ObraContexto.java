@@ -1,10 +1,9 @@
 package br.com.uninassau.lazulli.contexto;
 
-import br.com.uninassau.lazulli.capturaDados.FiscalCaptura;
 import br.com.uninassau.lazulli.capturaDados.ObraCaptura;
+import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.entidades.Obra;
-import br.com.uninassau.lazulli.printDados.PrintFiscal;
 import br.com.uninassau.lazulli.printDados.PrintObra;
 import br.com.uninassau.lazulli.repositorios.FiscalRepositorio;
 import br.com.uninassau.lazulli.repositorios.ObraRepositorio;
@@ -12,7 +11,7 @@ import br.com.uninassau.lazulli.repositorios.ObraRepositorio;
 import java.util.List;
 import java.util.Scanner;
 
-public class ObraContexto implements IContexto{
+public class ObraContexto implements IContexto {
     ObraRepositorio obraRepositorio;
     Scanner leitor;
 
@@ -27,6 +26,7 @@ public class ObraContexto implements IContexto{
         boolean indicador = true;
 
         do {
+            ElementosDeContexto.pulaLinha();
             System.out.println("------Obras Cadastradas-------");
             System.out.println();
 
@@ -99,7 +99,7 @@ public class ObraContexto implements IContexto{
         boolean teste = obraList.stream().anyMatch(v -> v.getCodigoDaObra() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!!----");
             return;
         }
 
@@ -166,7 +166,7 @@ public class ObraContexto implements IContexto{
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDaObra() == codigo);
 
         if(!teste){
-            System.out.println("Este codigo não existe");
+            System.out.println("----Este codigo não existe!!!----");
             return;
         }
 

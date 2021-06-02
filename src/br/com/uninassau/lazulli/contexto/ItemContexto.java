@@ -1,6 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.ItemCaptura;
+import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
 import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.printDados.PrintItem;
 import br.com.uninassau.lazulli.repositorios.ItemRepositorio;
@@ -23,6 +24,7 @@ public class ItemContexto implements IContexto {
         boolean indicador = true;
 
         do {
+            ElementosDeContexto.pulaLinha();
             System.out.println("------Itens Cadastrados-------");
             System.out.println();
 
@@ -88,7 +90,7 @@ public class ItemContexto implements IContexto {
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoItem() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!----");
             return;
         }
 
@@ -117,7 +119,7 @@ public class ItemContexto implements IContexto {
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoDoItem() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!----");
             return;
         }
 

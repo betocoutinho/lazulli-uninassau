@@ -1,19 +1,15 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.EmpresaLocadoraCaptura;
-import br.com.uninassau.lazulli.capturaDados.FiscalCaptura;
+import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
-import br.com.uninassau.lazulli.entidades.Fiscal;
-import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.printDados.PrintEmpresaLocadora;
-import br.com.uninassau.lazulli.printDados.PrintFiscal;
-import br.com.uninassau.lazulli.printDados.PrintItem;
 import br.com.uninassau.lazulli.repositorios.EmpresaLocadoraRepositorio;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class EmpresaLocadoraContexto implements IContexto{
+public class EmpresaLocadoraContexto implements IContexto {
 
     EmpresaLocadoraRepositorio repositorio;
     Scanner leitor;
@@ -28,6 +24,7 @@ public class EmpresaLocadoraContexto implements IContexto{
         boolean indicador = true;
 
         do {
+            ElementosDeContexto.pulaLinha();
             System.out.println("------Empresas Cadastradas-------");
             System.out.println();
 
@@ -35,7 +32,7 @@ public class EmpresaLocadoraContexto implements IContexto{
 
             PrintEmpresaLocadora.print(itens);
 
-            ElementosDeContexto.miniMenuDeContexto("Empresa Locadora");
+            ElementosDeContexto.miniMenuDeContexto("Empresa de Locação");
 
             String resposta = this.leitor.next();
 
@@ -89,7 +86,7 @@ public class EmpresaLocadoraContexto implements IContexto{
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoEmpresaLocadora() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!----");
             return;
         }
 
@@ -147,7 +144,7 @@ public class EmpresaLocadoraContexto implements IContexto{
         boolean teste = itemList.stream().anyMatch(v -> v.getCodigoEmpresaLocadora() == codigo);
 
         if(!teste){
-            System.out.println("Este numero não existe");
+            System.out.println("----Este numero não existe!!!----");
             return;
         }
 

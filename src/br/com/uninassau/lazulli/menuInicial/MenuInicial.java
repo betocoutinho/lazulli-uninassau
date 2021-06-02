@@ -1,9 +1,6 @@
 package br.com.uninassau.lazulli.menuInicial;
 
-import br.com.uninassau.lazulli.contexto.EmpresaLocadoraContexto;
-import br.com.uninassau.lazulli.contexto.FiscalContexto;
-import br.com.uninassau.lazulli.contexto.ItemContexto;
-import br.com.uninassau.lazulli.contexto.ObraContexto;
+import br.com.uninassau.lazulli.contexto.*;
 import br.com.uninassau.lazulli.entidades.Contrato;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
 import br.com.uninassau.lazulli.entidades.Fiscal;
@@ -26,6 +23,9 @@ public class MenuInicial {
         boolean status = true;
 
         do {
+            ElementosDeContexto.pulaLinha();
+            System.out.println("----LAZULLI CONSTRUÇÕES----");
+            System.out.println();
             System.out.println("Menu Inicial");
             System.out.println();
 
@@ -35,24 +35,31 @@ public class MenuInicial {
             System.out.println("[3] - Obras");
             System.out.println("[4] - Fiscais");
             System.out.println("[5] - Itens");
+            System.out.println("[0] - Sair");
+
 
             int element = leitor.nextInt();
             int entrada = element;
 
             switch (entrada){
                 case 1:
+                    ElementosDeContexto.pulaLinha();
                     MenuContrato.menu();
                     break;
                 case 2:
+                    ElementosDeContexto.pulaLinha();
                     empresaLocadoraContexto.consulta();
                     break;
                 case 3:
+                    ElementosDeContexto.pulaLinha();
                     obraContexto.consulta();
                     break;
                 case 4:
+                    ElementosDeContexto.pulaLinha();
                     fisca.consulta();
                     break;
                 case 5:
+                    ElementosDeContexto.pulaLinha();
                     itemContexto.consulta();
                     break;
                 default:

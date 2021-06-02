@@ -10,7 +10,7 @@ public class PrintFiscal {
         System.out.println(
                 "COD: " + fiscal.getCodigoDoFiscal() + " ::: "
                 + "Nome: " + fiscal.getNomeDoFiscal()
-                + " Telefone: " + fiscal.getTelefone()
+                + " | Telefone: " + fiscal.getTelefone()
         );
     }
 

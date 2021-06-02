@@ -10,8 +10,8 @@ public class PrintObra {
         System.out.println(
                 "COD: " + obra.getCodigoDaObra() + " ::: "
                 + "Empreendimento: " + obra.getNomedaObra()
-                + " End: " + obra.getEndereco()
-                + " Fiscal Responsavel: " + obra.getFiscal().getNomeDoFiscal()
+                + " | End: " + obra.getEndereco()
+                + " | Fiscal Responsavel: " + obra.getFiscal().getNomeDoFiscal()
         );
     }
     

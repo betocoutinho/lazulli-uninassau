@@ -1,4 +1,4 @@
-package br.com.uninassau.lazulli.entidades.interfaces;
+package br.com.uninassau.lazulli.repositorios.interfaces;
 
 import java.util.List;
 

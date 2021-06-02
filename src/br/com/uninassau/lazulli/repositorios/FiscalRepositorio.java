@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
-import br.com.uninassau.lazulli.entidades.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -118,7 +118,7 @@ public class FiscalRepositorio implements IRepositorio<Fiscal> {
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM FISCAL WHERE COD_ITEM = " + x;
+            String sql = "DELETE FROM FISCAL WHERE COD_FISCAL = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();

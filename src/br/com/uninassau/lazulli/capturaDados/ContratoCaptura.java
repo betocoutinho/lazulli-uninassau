@@ -131,7 +131,7 @@ public class ContratoCaptura {
             teste = itemList.stream().anyMatch(v -> v.getCodigoDoItem() == finalCodigo);
 
             if(!teste){
-                System.out.println("Este numero não existe");
+                System.out.println("Este numero não existe, Digite Novamente!!!");
             }
         }while (!teste);
 

@@ -81,7 +81,7 @@ public class ConexaoMySQL {
 
             ConexaoMySQL.getConexaoMySQL().close();
 
-            System.out.println("Fechando a conexão com o Banco de Dados.");
+            //System.out.println("Fechando a conexão com o Banco de Dados.");
 
             return true;
 

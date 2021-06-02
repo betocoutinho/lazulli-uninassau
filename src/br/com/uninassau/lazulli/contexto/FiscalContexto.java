@@ -1,16 +1,15 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.FiscalCaptura;
+import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
 import br.com.uninassau.lazulli.entidades.Fiscal;
-import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.printDados.PrintFiscal;
-import br.com.uninassau.lazulli.printDados.PrintItem;
 import br.com.uninassau.lazulli.repositorios.FiscalRepositorio;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class FiscalContexto implements IContexto{
+public class FiscalContexto implements IContexto {
 
     FiscalRepositorio repositorio;
     Scanner leitor;
@@ -22,9 +21,11 @@ public class FiscalContexto implements IContexto{
 
     @Override
     public void consulta() {
+
         boolean indicador = true;
 
         do {
+            ElementosDeContexto.pulaLinha();
             System.out.println("------Fiscais Cadastrados-------");
             System.out.println();
 
