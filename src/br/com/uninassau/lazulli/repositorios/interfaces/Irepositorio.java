@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorios.interfaces;
 
 import java.util.List;
 
-public interface IRepositorio<T> {
+public interface Irepositorio<T> {
     void create(T object);
     T read(int x);
     List<T> readList();

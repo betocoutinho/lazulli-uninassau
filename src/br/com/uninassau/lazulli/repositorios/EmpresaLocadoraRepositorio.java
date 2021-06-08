@@ -2,18 +2,18 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
-import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.Irepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora> {
+public class EmpresaLocadoraRepositorio implements Irepositorio<EmpresaLocadora> {
     @Override
     public void create(EmpresaLocadora object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO empresa_locadora(nome_empresa, endereco) VALUES (?,?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO EMPRESA_LOCADORA(NOME_EMPRESA, ENDERECO) VALUES (?,?)");
 
 
             ps.setString(1, object.getNome());
@@ -36,7 +36,7 @@ public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora>
         EmpresaLocadora empresaLocadora = null;
 
         try {
-            String sql = "SELECT * FROM empresa_locadora WHERE COD_EMPRESA = " + x;
+            String sql = "SELECT * FROM EMPRESA_LOCADORA WHERE COD_EMPRESA = " + x;
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -68,7 +68,7 @@ public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora>
     public List<EmpresaLocadora> readList() {
         List<EmpresaLocadora> empresaLocadoras = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM empresa_locadora";
+            String sql = "SELECT * FROM EMPRESA_LOCADORA";
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -98,7 +98,7 @@ public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora>
     public void update(int x, EmpresaLocadora object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "UPDATE empresa_locadora SET NOME_EMPRESA = ?, ENDERECO = ? WHERE COD_EMPRESA = " + x;
+            String sql = "UPDATE EMPRESA_LOCADORA SET NOME_EMPRESA = ?, ENDERECO = ? WHERE COD_EMPRESA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.setString(1, object.getNome());
@@ -116,7 +116,7 @@ public class EmpresaLocadoraRepositorio implements IRepositorio<EmpresaLocadora>
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM empresa_locadora WHERE COD_EMPRESA = " + x;
+            String sql = "DELETE FROM EMPRESA_LOCADORA WHERE COD_EMPRESA = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();

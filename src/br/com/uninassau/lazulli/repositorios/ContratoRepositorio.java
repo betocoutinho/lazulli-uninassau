@@ -2,7 +2,7 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.*;
-import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.Irepositorio;
 
 import java.time.LocalDate;
 
@@ -10,13 +10,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContratoRepositorio implements IRepositorio<Contrato> {
+public class ContratoRepositorio implements Irepositorio<Contrato> {
     @Override
     public void create(Contrato object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO contrato(num_contrato, data_inicial, data_final, " +
-                    "valor_do_contrato, fk_empresa_locadora_cod_empresa, fk_obra_cod_obra) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO CONTRATO(COD_CONTRATO, DATA_INICIAL, DATA_FINAL, " +
+                    "VALOR_DO_CONTRATO, FK_EMPRESA_LOCADORA_COD_EMPRESA, FK_OBRA_COD_OBRA) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, object.getNumeroDoContrato());
             ps.setDate(2, Date.valueOf(object.getDataInicial()));
@@ -57,7 +57,7 @@ public class ContratoRepositorio implements IRepositorio<Contrato> {
         Contrato contrato = null;
 
         try {
-            String sql = "SELECT * FROM contrato WHERE COD_CONTRATO = " + x;
+            String sql = "SELECT * FROM CONTRATO WHERE COD_CONTRATO = " + x;
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -96,7 +96,7 @@ public class ContratoRepositorio implements IRepositorio<Contrato> {
         List<Contrato> contratos = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM contrato";
+            String sql = "SELECT * FROM CONTRATO";
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -158,7 +158,7 @@ public class ContratoRepositorio implements IRepositorio<Contrato> {
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM contrato WHERE COD_CONTRATO = " + x;
+            String sql = "DELETE FROM CONTRATO WHERE COD_CONTRATO = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();

@@ -1,7 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.EmpresaLocadoraCaptura;
-import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
+import br.com.uninassau.lazulli.contexto.interfaces.Icontexto;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
 import br.com.uninassau.lazulli.printDados.PrintEmpresaLocadora;
 import br.com.uninassau.lazulli.repositorios.EmpresaLocadoraRepositorio;
@@ -9,7 +9,7 @@ import br.com.uninassau.lazulli.repositorios.EmpresaLocadoraRepositorio;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmpresaLocadoraContexto implements IContexto {
+public class EmpresaLocadoraContexto implements Icontexto {
 
     EmpresaLocadoraRepositorio repositorio;
     Scanner leitor;

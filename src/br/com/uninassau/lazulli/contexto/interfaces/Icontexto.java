@@ -1,6 +1,6 @@
 package br.com.uninassau.lazulli.contexto.interfaces;
 
-public interface IContexto {
+public interface Icontexto {
     void consulta();
     void criar();
     void atualizar();

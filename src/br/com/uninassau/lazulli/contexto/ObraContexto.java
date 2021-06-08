@@ -1,7 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.ObraCaptura;
-import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
+import br.com.uninassau.lazulli.contexto.interfaces.Icontexto;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.entidades.Obra;
 import br.com.uninassau.lazulli.printDados.PrintObra;
@@ -11,7 +11,7 @@ import br.com.uninassau.lazulli.repositorios.ObraRepositorio;
 import java.util.List;
 import java.util.Scanner;
 
-public class ObraContexto implements IContexto {
+public class ObraContexto implements Icontexto {
     ObraRepositorio obraRepositorio;
     Scanner leitor;
 

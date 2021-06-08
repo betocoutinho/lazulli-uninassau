@@ -1,7 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.ItemCaptura;
-import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
+import br.com.uninassau.lazulli.contexto.interfaces.Icontexto;
 import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.printDados.PrintItem;
 import br.com.uninassau.lazulli.repositorios.ItemRepositorio;
@@ -9,7 +9,7 @@ import br.com.uninassau.lazulli.repositorios.ItemRepositorio;
 import java.util.List;
 import java.util.Scanner;
 
-public class ItemContexto implements IContexto {
+public class ItemContexto implements Icontexto {
 
     ItemRepositorio repositorio;
     Scanner leitor;

@@ -3,19 +3,19 @@ package br.com.uninassau.lazulli.repositorios;
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Item;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
-import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.Irepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
+public class ItemContratoRepositorio implements Irepositorio<ItemContrato> {
 
     @Override
     public void create(ItemContrato object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO item_contrato" +
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO ITEM_CONTRATO" +
                     "(FK_ITEM_COD_ITEM, FK_CONTRATO_COD_CONTRATO, QUANTIDADE) VALUES (?,?,?)");
 
             ps.setInt(1, object.getItem().getCodigoDoItem());
@@ -46,7 +46,7 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
         List<ItemContrato> itemContratoList = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM item_contrato";
+            String sql = "SELECT * FROM ITEM_CONTRATO";
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -79,7 +79,7 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
         List<Item> listItem = new ItemRepositorio().readList();
 
         try {
-            String sql = "SELECT * FROM item_contrato WHERE FK_CONTRATO_COD_CONTRATO = " + x;
+            String sql = "SELECT * FROM ITEM_CONTRATO WHERE FK_CONTRATO_COD_CONTRATO = " + x;
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             Statement smt = conexao.createStatement();
             ResultSet resultado = smt.executeQuery(sql);
@@ -116,7 +116,7 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
     public void update(int x, ItemContrato object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "UPDATE item_contrato SET QUANTIDADE = ? WHERE FK_CONTRATO_COD_CONTRATO = " + x
+            String sql = "UPDATE ITEM_CONTRATO SET QUANTIDADE = ? WHERE FK_CONTRATO_COD_CONTRATO = " + x
                     + " AND FK_ITEM_COD_ITEM = " + object.getItem().getCodigoDoItem();
             PreparedStatement ps = conexao.prepareStatement(sql);
 
@@ -133,7 +133,7 @@ public class ItemContratoRepositorio implements IRepositorio<ItemContrato> {
     public void delete(int x) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
-            String sql = "DELETE FROM item_contrato WHERE FK_ITEM_COD_ITEM = " + x;
+            String sql = "DELETE FROM ITEM_CONTRATO WHERE FK_ITEM_COD_ITEM = " + x;
             PreparedStatement ps = conexao.prepareStatement(sql);
 
             ps.executeUpdate();

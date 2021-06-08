@@ -1,7 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.ContratoCaptura;
-import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
+import br.com.uninassau.lazulli.contexto.interfaces.Icontexto;
 import br.com.uninassau.lazulli.entidades.Contrato;
 import br.com.uninassau.lazulli.entidades.EmpresaLocadora;
 import br.com.uninassau.lazulli.entidades.ItemContrato;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ContratoContexto implements IContexto {
+public class ContratoContexto implements Icontexto {
     ContratoRepositorio repositorio;
     Scanner leitor;
 

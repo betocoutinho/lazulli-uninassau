@@ -3,20 +3,20 @@ package br.com.uninassau.lazulli.repositorios;
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.entidades.Obra;
-import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.Irepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObraRepositorio implements IRepositorio<Obra> {
+public class ObraRepositorio implements Irepositorio<Obra> {
 
     @Override
     public void create(Obra object) {
         try {
             Connection conexao = ConexaoMySQL.getConexaoMySQL();
             PreparedStatement ps = conexao.prepareStatement(
-                    "INSERT INTO obra(nome_obra, endereco, fk_fiscal_cod_fiscal) values (?,?,?)");
+                    "INSERT INTO OBRA(NOME_OBRA, ENDERECO, FK_FISCAL_COD_FISCAL) values (?,?,?)");
 
             ps.setString(1, object.getNomedaObra());
             ps.setString(2, object.getEndereco());

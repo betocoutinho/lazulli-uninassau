@@ -1,7 +1,7 @@
 package br.com.uninassau.lazulli.contexto;
 
 import br.com.uninassau.lazulli.capturaDados.FiscalCaptura;
-import br.com.uninassau.lazulli.contexto.interfaces.IContexto;
+import br.com.uninassau.lazulli.contexto.interfaces.Icontexto;
 import br.com.uninassau.lazulli.entidades.Fiscal;
 import br.com.uninassau.lazulli.printDados.PrintFiscal;
 import br.com.uninassau.lazulli.repositorios.FiscalRepositorio;
@@ -9,7 +9,7 @@ import br.com.uninassau.lazulli.repositorios.FiscalRepositorio;
 import java.util.List;
 import java.util.Scanner;
 
-public class FiscalContexto implements IContexto {
+public class FiscalContexto implements Icontexto {
 
     FiscalRepositorio repositorio;
     Scanner leitor;

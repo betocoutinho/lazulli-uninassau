@@ -27,9 +27,9 @@ public class ConexaoMySQL {
 
             String url = "jdbc:mysql://localhost:3306/lazullidb";
 
-            String username = "root"; // nome de um usuário de seu BD
+            String username = "beto"; // nome de um usuário de seu BD
 
-            String password = "7175"; // sua senha de acesso
+            String password = "7175btBT!"; // sua senha de acesso
 
             connection = DriverManager.getConnection(url, username, password);
 

@@ -2,13 +2,13 @@ package br.com.uninassau.lazulli.repositorios;
 
 import br.com.uninassau.lazulli.bancodedados.ConexaoMySQL;
 import br.com.uninassau.lazulli.entidades.Fiscal;
-import br.com.uninassau.lazulli.repositorios.interfaces.IRepositorio;
+import br.com.uninassau.lazulli.repositorios.interfaces.Irepositorio;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FiscalRepositorio implements IRepositorio<Fiscal> {
+public class FiscalRepositorio implements Irepositorio<Fiscal> {
 
     @Override
     public void create(Fiscal object) {
