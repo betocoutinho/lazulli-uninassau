@@ -2,25 +2,26 @@ package br.com.uninassau.lazulli.menuInicial;
 
 import br.com.uninassau.lazulli.contexto.ContratoContexto;
 import br.com.uninassau.lazulli.contexto.ElementosDeContexto;
+import br.com.uninassau.lazulli.contexto.RelatorioContexto;
 
 import java.util.Scanner;
 
-public class MenuContrato {
-    
+public class MenuRelatorio {
+
     public static void menu(){
         Scanner leitor= new Scanner(System.in);
-        ContratoContexto contratoContexto = new ContratoContexto();
+        RelatorioContexto contexto = new RelatorioContexto();
 
         boolean status = true;
         do {
             ElementosDeContexto.pulaLinha();
-            System.out.println("Contratos");
+            System.out.println("Relatórios");
 
-            System.out.println("Selecione um numero: ");
-            System.out.println("[1] - Consulta");
-            System.out.println("[2] - Criação");
-            System.out.println("[3] - Edição");
-            System.out.println("[4] - Remoção");
+            System.out.println("Selecione uma opção: ");
+            System.out.println("[1] - Relatório de Fiscais em Obras");
+            System.out.println("[2] - Relação de Equipamentos por Empresa");
+            System.out.println("[3] - Relatório de valor a ser pago para as empresa de locação ");
+            System.out.println("[4] - Relação do total de equipamentos alugados");
             System.out.println("[0] - Sair");
 
             int entrada = leitor.nextInt();
@@ -30,27 +31,25 @@ public class MenuContrato {
                     return;
                 case 1:
                     ElementosDeContexto.pulaLinha();
-                    contratoContexto.consulta();
+                    contexto.relatorioDeFiscaisEmObras();
+
                     break;
                 case 2:
                     ElementosDeContexto.pulaLinha();
-                    contratoContexto.criar();
+                    contexto.relatorioDeRelacaoDeEquipamentos();
                     break;
                 case 3:
                     ElementosDeContexto.pulaLinha();
-                    contratoContexto.atualizar();
+                    contexto.relatorioDevalorASerPago();
                     break;
                 case 4:
                     ElementosDeContexto.pulaLinha();
-                    contratoContexto.deletar();
+                    contexto.relatoriosDoTotalDeItens();
+
                     break;
                 default:
-                    status = true;
-                    System.out.println("Valor Invalido");
+                    status = false;
             }
         }while (status);
-
-
-
     }
 }

@@ -6,11 +6,9 @@ import br.com.uninassau.lazulli.relatorio.RelatorioDoTotalDeItens;
 
 public class Main {
     public static void main(String[] args) {
-        //MenuInicial.inicio();
+        MenuInicial.inicio();
 
-        RelatorioDeFiscaisEmObras rf = new RelatorioDeFiscaisEmObras();
 
-        rf.print();
 
 
 

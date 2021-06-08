@@ -18,6 +18,7 @@ public class MenuInicial {
         ItemContexto itemContexto = new ItemContexto();
         EmpresaLocadoraContexto empresaLocadoraContexto = new EmpresaLocadoraContexto();
 
+
         Scanner leitor  = new Scanner(System.in);
 
         boolean status = true;
@@ -35,6 +36,7 @@ public class MenuInicial {
             System.out.println("[3] - Obras");
             System.out.println("[4] - Fiscais");
             System.out.println("[5] - Itens");
+            System.out.println("[6] - Relatórios");
             System.out.println("[0] - Sair");
 
 
@@ -42,6 +44,8 @@ public class MenuInicial {
             int entrada = element;
 
             switch (entrada){
+                case 0:
+                    return;
                 case 1:
                     ElementosDeContexto.pulaLinha();
                     MenuContrato.menu();
@@ -62,8 +66,12 @@ public class MenuInicial {
                     ElementosDeContexto.pulaLinha();
                     itemContexto.consulta();
                     break;
+                case 6:
+                    ElementosDeContexto.pulaLinha();
+                    MenuRelatorio.menu();
+                    break;
                 default:
-                    status = false;
+                    status = true;
             }
         }while (status);
 
